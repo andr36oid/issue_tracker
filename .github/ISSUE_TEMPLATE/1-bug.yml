@@ -1,0 +1,143 @@
+name: Something doesn't work
+description: A problem on an R36S, R36S Plus, R46H or R50S with andr36oid.
+title: '[Console]: what doesn''t work'
+labels:
+- bug
+- needs triage
+body:
+- type: markdown
+  attributes:
+    value: |-
+      Thanks for taking the time to report this. This tracker is for the **R36S, R36S Plus, R46H and R50S** with the files from the `Panels` or `Devices` folders.
+
+      Using a folder from `Experimental` (R36S clones, K36, G80, R36 Max, Soy Sauce and others)? Report it in the [clone issue tracker](https://github.com/andr36oid/clone_issue_tracker/issues/new/choose) instead.
+
+      If you don't know an answer, choose or write "Don't know". You can write in English, Spanish or Portuguese.
+- type: dropdown
+  id: console
+  attributes:
+    label: Which console?
+    options:
+    - R36S
+    - R36S Plus
+    - R46H
+    - R50S
+    - Don't know
+  validations:
+    required: true
+- type: dropdown
+  id: folder
+  attributes:
+    label: Which folder's files are on the BOOT drive?
+    description: The one you chose in the flasher, or copied by hand. `dtb-hint.txt` on the BOOT drive says it in its first line ("Now in use").
+    options:
+    - Panels/Panel0 (R36S, panel 0)
+    - Panels/Panel1 (R36S, panel 1)
+    - Panels/Panel2 (R36S, panel 2)
+    - Panels/Panel3 (R36S, panel 3)
+    - Panels/Panel4 (R36S, panel 4 (the default))
+    - Panels/Panel5 (R36S, panel 5)
+    - Panels/Panel6 (R36S, panel 6)
+    - Panels/R36S-Plus (R36S Plus, 720×720)
+    - Devices/R46H (R46H)
+    - Devices/R50S (R50S)
+    - The files the card came with (I didn't change anything)
+    - Don't know
+  validations:
+    required: true
+- type: input
+  id: version
+  attributes:
+    label: Which andr36oid version?
+    description: Settings > About console shows it, or use the name of the file you wrote to the card.
+    placeholder: 'For example: lineage-18.1-20261011-1531'
+  validations:
+    required: true
+- type: dropdown
+  id: area
+  attributes:
+    label: What is the problem about?
+    description: Pick the closest.
+    options:
+    - Starting up / the console doesn't start
+    - Screen
+    - Buttons or sticks
+    - Sound
+    - Battery, charging or sleep
+    - Wi-Fi or Bluetooth
+    - Games or emulators
+    - Apps or the launcher
+    - Settings
+    - SD card or storage
+    - Installing andr36oid / the SD Flasher
+    - Something else
+  validations:
+    required: true
+- type: textarea
+  id: what
+  attributes:
+    label: What happens?
+    description: What did you do, what did you expect, and what happened instead?
+    placeholder: |-
+      1. I open …
+      2. I press …
+      3. The console …
+  validations:
+    required: true
+- type: dropdown
+  id: often
+  attributes:
+    label: How often does it happen?
+    options:
+    - Every time
+    - Often
+    - Sometimes
+    - It happened once
+    - Don't know
+  validations:
+    required: true
+- type: input
+  id: since
+  attributes:
+    label: Since when?
+    description: Did it start after an update, a setting you changed or an app you installed? Did an older version work?
+    placeholder: 'For example: since the 20261011 build; worked before'
+  validations:
+    required: false
+- type: textarea
+  id: media
+  attributes:
+    label: Screenshots or video (optional)
+    description: Drag them here. A photo of the screen taken with a phone is fine. For a video, upload it to YouTube or Google Drive and paste the link.
+  validations:
+    required: false
+- type: markdown
+  attributes:
+    value: |-
+      ## Problem report
+
+      A problem report helps a lot: it holds the logs from now and from the last start.
+
+      **If the console works:** right after the problem, open **Settings > System > Problem report**, describe what went wrong and tap **Save report**. It is saved on the **EASYROMS** drive, in the folder `andr36oid-reports`.
+
+      **If the console doesn't start or the screen stays black:**
+      1. Put the SD card into a computer and open the drive called **BOOT**.
+      2. Make a new, empty text file at the top of that drive called **`make-report.txt`** (Windows: right-click → **New** → **Text Document**). If Windows hides file endings, just name it `make-report`.
+      3. Put the card into the console, switch it on and **wait 10 minutes**, even if the screen stays black. Then switch it off (hold the power button for about 10 seconds if it doesn't react).
+      4. Put the card into the computer again. The report is in `andr36oid-reports` on BOOT or EASYROMS; **`make-report-result.txt`** on BOOT says where.
+
+      The report lists your apps and can contain Wi-Fi network names. Have a look before you post it.
+- type: textarea
+  id: report
+  attributes:
+    label: Problem report (.zip)
+    description: Drag the `report-….zip` file here, or write why you couldn't make one.
+  validations:
+    required: false
+- type: textarea
+  id: other
+  attributes:
+    label: Anything else?
+    description: Accessories plugged in (controller, headphones, USB stick), SD card brand and size, anything that seems related.
+  validations:
+    required: false

@@ -1,0 +1,42 @@
+name: Idea or request
+description: Something andr36oid should do or do differently.
+title: 'Idea: '
+labels:
+- idea
+body:
+- type: markdown
+  attributes:
+    value: 'Ideas are welcome. Please search the existing issues first: if someone already asked for the same thing, give it a 👍 instead of opening a new one.'
+- type: textarea
+  id: idea
+  attributes:
+    label: What would you like?
+    description: Describe it as you would to a friend. What should happen, and where?
+  validations:
+    required: true
+- type: textarea
+  id: why
+  attributes:
+    label: Why?
+    description: What would it help you do? What do you do now instead?
+  validations:
+    required: true
+- type: dropdown
+  id: console
+  attributes:
+    label: Which console do you use?
+    options:
+    - R36S
+    - R36S Plus
+    - R46H
+    - R50S
+    - A clone (with an Experimental folder)
+  validations:
+    required: true
+- type: textarea
+  id: other
+  attributes:
+    label: Anything else?
+    description: Screenshots, links, examples from other systems.
+  validations:
+    required: false
