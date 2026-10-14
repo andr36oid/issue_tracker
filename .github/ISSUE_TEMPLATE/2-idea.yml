@@ -6,7 +6,10 @@ labels:
 body:
 - type: markdown
   attributes:
-    value: 'Ideas are welcome. Please search the existing issues first: if someone already asked for the same thing, give it a 👍 instead of opening a new one.'
+    value: |-
+      Ideas are welcome. Please search the existing issues first: if someone already asked for the same thing, give it a 👍 instead of opening a new one.
+
+      **A new Kernel Tweak?** Say which kernel setting it is (a file under `/sys` or `/proc`, or a kernel start option like `cpuidle.off=1`), which values make sense and what it helps with on your console. If you found good settings for your console in **Settings > System > Kernel Tweaks**, tell us: they may become the default for it.
 - type: textarea
   id: idea
   attributes:
@@ -33,6 +36,17 @@ body:
     - A clone (with an Experimental folder)
   validations:
     required: true
+- type: dropdown
+  id: kind
+  attributes:
+    label: What kind of idea is it?
+    options:
+    - A new feature or app
+    - A change to something that exists
+    - A new Kernel Tweak, or a better default for one
+    - Something else
+  validations:
+    required: false
 - type: textarea
   id: other
   attributes:

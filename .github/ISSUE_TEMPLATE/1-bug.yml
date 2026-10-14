@@ -70,6 +70,7 @@ body:
     - Settings
     - SD card or storage
     - Installing andr36oid / the SD Flasher
+    - Kernel Tweaks (Settings > System > Kernel Tweaks)
     - Something else
   validations:
     required: true
@@ -104,6 +105,40 @@ body:
     placeholder: 'For example: since the 20261011 build; worked before'
   validations:
     required: false
+- type: markdown
+  attributes:
+    value: |-
+      ## Kernel Tweaks
+
+      **Settings > System > Kernel Tweaks** changes low-level settings (sleep, processor, memory, SD cards, controls, logs). Options under **At start (needs a restart)** are saved in **`kernel-tweaks.txt`** on the BOOT drive and only take effect after a restart.
+
+      If you changed something there, try once with the **Use tweaks** switch off (or **Reset everything**) and say below whether the problem goes away. If the console no longer starts after changing a start option, delete `kernel-tweaks.txt` from the BOOT drive on a computer: it then starts without them.
+
+      The problem report lists every tweak that isn't at its default, so you don't need to copy them by hand.
+- type: dropdown
+  id: tweaks
+  attributes:
+    label: Did you change anything in Kernel Tweaks?
+    options:
+    - No, everything is at the default
+    - Yes, and the problem goes away with "Use tweaks" off
+    - Yes, and the problem stays with "Use tweaks" off
+    - Yes, but I didn't try with them off
+    - They switched themselves off ("didn't finish starting twice in a row")
+    - My version has no Kernel Tweaks
+    - Don't know
+  validations:
+    required: true
+- type: textarea
+  id: tweaks_changed
+  attributes:
+    label: Which tweaks did you change? (optional)
+    description: Only needed if you couldn't make a problem report. Name the setting and the value, e.g. "Sleep type → Light sleep". If the console doesn't start, open `kernel-tweaks.txt` on the BOOT drive with Notepad and copy its `kt_args=` line here.
+    placeholder: |-
+      Sleep type → Light sleep
+      kt_args=fiq_debugger.disable=0 console=ttyS2,115200n8 …
+  validations:
+    required: false
 - type: textarea
   id: media
   attributes:
@@ -126,7 +161,7 @@ body:
       3. Put the card into the console, switch it on and **wait 10 minutes**, even if the screen stays black. Then switch it off (hold the power button for about 10 seconds if it doesn't react).
       4. Put the card into the computer again. The report is in `andr36oid-reports` on BOOT or EASYROMS; **`make-report-result.txt`** on BOOT says where.
 
-      The report lists your apps and can contain Wi-Fi network names. Have a look before you post it.
+      The report lists your apps and Kernel Tweaks and can contain Wi-Fi network names. Have a look before you post it.
 - type: textarea
   id: report
   attributes:
