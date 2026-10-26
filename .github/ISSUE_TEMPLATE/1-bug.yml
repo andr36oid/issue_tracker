@@ -1,5 +1,5 @@
 name: Something doesn't work
-description: A problem on an R36S, R36S Plus, R46H or R50S with andr36oid.
+description: A problem on an R36S, R36S Plus, R46H, R50S, D-28S, G350 or R45H with andr36oid.
 title: '[Console]: what doesn''t work'
 labels:
 - bug
@@ -8,11 +8,13 @@ body:
 - type: markdown
   attributes:
     value: |-
-      Thanks for taking the time to report this. This tracker is for the **R36S, R36S Plus, R46H and R50S** with the files from the `Panels` or `Devices` folders.
+      Thanks for taking the time to report this. This tracker is for the **R36S, R36S Plus, R46H, R50S, D-28S, G350 and R45H** with the files from the `Panels` or `Devices` folders.
 
       Using a folder from `Experimental` (R36S clones, K36, G80, R36 Max, Soy Sauce and others)? Report it in the [clone issue tracker](https://github.com/andr36oid/clone_issue_tracker/issues/new/choose) instead.
 
       If you don't know an answer, choose or write "Don't know". You can write in English, Spanish or Portuguese.
+
+      **Before you report:** some known problems (no speaker sound, saves that don't stick, a few others) already have a ready-made fix in the **hotfixes repo** that you drop onto the BOOT drive, no new build needed: **https://github.com/andr36oid/hotfixes** (the SD Flasher can also install these for you). If a fix matches your problem, try it first.
 - type: dropdown
   id: console
   attributes:
@@ -22,6 +24,9 @@ body:
     - R36S Plus
     - R46H
     - R50S
+    - D-28S
+    - G350
+    - R45H
     - Don't know
   validations:
     required: true
@@ -41,6 +46,9 @@ body:
     - Panels/R36S-Plus (R36S Plus, 720×720)
     - Devices/R46H (R46H)
     - Devices/R50S (R50S)
+    - Devices/D-28S (Diium D-28S)
+    - Devices/G350 (BatleXP G350)
+    - Devices/R45H (R45H / HL-R36H ProMax)
     - The files the card came with (I didn't change anything)
     - Don't know
   validations:
@@ -50,7 +58,7 @@ body:
   attributes:
     label: Which andr36oid version?
     description: Settings > About console shows it, or use the name of the file you wrote to the card.
-    placeholder: 'For example: lineage-18.1-20261011-1531'
+    placeholder: 'For example: andr36oid-20261024-1750-rk3326'
   validations:
     required: true
 - type: dropdown
@@ -176,3 +184,9 @@ body:
     description: Accessories plugged in (controller, headphones, USB stick), SD card brand and size, anything that seems related.
   validations:
     required: false
+- type: checkboxes
+  id: hotfix_checked
+  attributes:
+    label: Before you post
+    options:
+    - label: I checked the hotfixes repo (github.com/andr36oid/hotfixes) in case a ready-made fix already covers this.

@@ -3,3 +3,6 @@ contact_links:
   - name: My console is a clone or needs an Experimental folder
     url: https://github.com/andr36oid/clone_issue_tracker/issues/new/choose
     about: R36S clones, K36, G80, R36 Max, R36 Ultra, Soy Sauce and others go to the clone issue tracker.
+  - name: Looking for a fix for a known problem?
+    url: https://github.com/andr36oid/hotfixes
+    about: Drop-in fixes (sound, saves, and more) you add to the BOOT drive without a new build.
