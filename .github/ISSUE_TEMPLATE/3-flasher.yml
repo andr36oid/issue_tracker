@@ -1,0 +1,117 @@
+name: The SD Flasher doesn't work
+description: A problem with the andr36oid SD Flasher program itself - downloading, finding the card, writing, verifying, adding games, hotfixes or backups.
+title: '[Flasher]: what went wrong'
+labels:
+- flasher
+- needs triage
+body:
+- type: markdown
+  attributes:
+    value: |-
+      This form is for problems with the **andr36oid SD Flasher** program. A problem with the console *after* it starts goes in the [problem form](https://github.com/andr36oid/issue_tracker/issues/new/choose) instead. If your console is a clone or needs an Experimental folder, use the [clone issue tracker](https://github.com/andr36oid/clone_issue_tracker/issues/new/choose).
+
+      Two quick things to try first, they fix most reports:
+
+      - **Keep both files together.** The flasher needs its helper file right next to it. If you started it from *inside* the downloaded zip, unzip the whole thing into a normal folder first, then run it from there.
+      - **Use the newest version** from the [releases page](https://github.com/andr36oid/andr36oid_sdflasher/releases); your problem may already be fixed.
+
+      You can write in English, Spanish or Portuguese. If you don't know an answer, choose or write "Don't know".
+- type: dropdown
+  id: os
+  attributes:
+    label: Where did you run the flasher?
+    options:
+    - Windows
+    - macOS
+    - Linux
+    - Android
+  validations:
+    required: true
+- type: input
+  id: version
+  attributes:
+    label: Flasher version
+    description: It is in the name of the file you downloaded, or at the bottom of the flasher window.
+    placeholder: 'For example: v0.3.5'
+  validations:
+    required: true
+- type: dropdown
+  id: step
+  attributes:
+    label: What were you doing when it went wrong?
+    description: Pick the closest.
+    options:
+    - Starting the flasher (it won't open, or closes by itself)
+    - Choosing or downloading a release
+    - The flasher doesn't see my SD card
+    - Writing to the card
+    - Checking the card after writing (verify)
+    - Adding games or apps (APKs)
+    - Installing a hotfix
+    - Making or restoring a backup
+    - Something else
+  validations:
+    required: true
+- type: textarea
+  id: what
+  attributes:
+    label: What happens?
+    description: What did you click, what did you expect, and what happened instead?
+    placeholder: |-
+      1. I open the flasher …
+      2. I choose my card …
+      3. It …
+  validations:
+    required: true
+- type: textarea
+  id: error
+  attributes:
+    label: The exact message
+    description: Copy the message word for word, or take a photo of it. For example "administrator access was denied", "exit status 1", "disk helper missing", or a long red message. If the flasher has a "details" area, open it and copy that too.
+  validations:
+    required: false
+- type: input
+  id: card
+  attributes:
+    label: Which SD card and reader?
+    description: The card's brand and size, and whether you used a built-in card slot or a USB card reader.
+    placeholder: 'For example: SanDisk Ultra 64 GB, USB reader'
+  validations:
+    required: true
+- type: dropdown
+  id: fromzip
+  attributes:
+    label: Did you run the flasher straight from inside the downloaded zip?
+    description: On Windows and macOS the flasher needs its helper file next to it, so the zip has to be unpacked into a folder first.
+    options:
+    - No, I unzipped it into a folder first
+    - Yes, I ran it from inside the zip
+    - Don't know
+  validations:
+    required: true
+- type: dropdown
+  id: other_program
+  attributes:
+    label: Does the same card work with another writing program?
+    description: If the flasher can't write, trying balenaEtcher or Raspberry Pi Imager with the same card and reader tells us whether it's the card, the reader or the flasher.
+    options:
+    - I didn't try another program
+    - Another program writes the card fine
+    - Another program also fails
+    - Don't know
+  validations:
+    required: false
+- type: textarea
+  id: media
+  attributes:
+    label: Screenshots (optional)
+    description: Drag a screenshot or a phone photo of the flasher window here. A picture of the error helps a lot.
+  validations:
+    required: false
+- type: textarea
+  id: other
+  attributes:
+    label: Anything else?
+    description: Antivirus or security warnings, where you unzipped it, whether it worked before, anything that seems related.
+  validations:
+    required: false
